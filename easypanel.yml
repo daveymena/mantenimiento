@@ -1,0 +1,45 @@
+# Configuración para Easypanel
+name: pc-optimizer-ai-server
+services:
+  - type: app
+    data:
+      projectName: pc-optimizer-ai
+      serviceName: ai-server
+      source:
+        type: github
+        repo: daveymena/mantenimiento
+        branch: main
+      build:
+        type: dockerfile
+        dockerfile: Dockerfile
+      deploy:
+        replicas: 1
+        command: python src/ai/ai_server.py
+        ports:
+          - published: 5000
+            target: 5000
+            protocol: tcp
+      env:
+        - key: GROQ_KEY_1
+          value: ${GROQ_KEY_1}
+        - key: GROQ_KEY_2
+          value: ${GROQ_KEY_2}
+        - key: GROQ_KEY_3
+          value: ${GROQ_KEY_3}
+        - key: GROQ_KEY_4
+          value: ${GROQ_KEY_4}
+        - key: GROQ_KEY_5
+          value: ${GROQ_KEY_5}
+        - key: GROQ_KEY_6
+          value: ${GROQ_KEY_6}
+        - key: GROQ_KEY_7
+          value: ${GROQ_KEY_7}
+        - key: FLASK_ENV
+          value: production
+      domains:
+        - name: pc-optimizer-ai.yourdomain.com
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+        interval: 30s
+        timeout: 10s
+        retries: 3

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  ai-server:
+    build: .
+    container_name: pc-optimizer-ai
+    ports:
+      - "5000:5000"
+    environment:
+      # Configurar tus API keys aquí
+      - GROQ_KEY_1=${GROQ_KEY_1}
+      - GROQ_KEY_2=${GROQ_KEY_2}
+      - GROQ_KEY_3=${GROQ_KEY_3}
+      - GROQ_KEY_4=${GROQ_KEY_4}
+      - GROQ_KEY_5=${GROQ_KEY_5}
+      - GROQ_KEY_6=${GROQ_KEY_6}
+      - GROQ_KEY_7=${GROQ_KEY_7}
+      - FLASK_ENV=production
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

@@ -54,3 +54,7 @@ groq_keys_state.json
 
 # Electron
 out/
+
+# Docker
+.dockerignore
+docker-compose.override.yml

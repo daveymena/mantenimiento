@@ -167,12 +167,24 @@ def groq_reset():
     })
 
 if __name__ == '__main__':
-    print("🤖 Servidor de IA iniciado en http://localhost:5000")
+    import os
+    
+    # Configuración de producción
+    port = int(os.getenv('PORT', 5000))
+    debug = os.getenv('FLASK_ENV') != 'production'
+    
+    print("🤖 Servidor de IA iniciado")
+    print(f"📡 Puerto: {port}")
+    print(f"🔧 Modo: {'Desarrollo' if debug else 'Producción'}")
     print("📊 Endpoints disponibles:")
+    print("  - GET  /health")
     print("  - GET  /api/analyze")
     print("  - POST /api/recommendations")
     print("  - GET  /api/maintenance-plan")
     print("  - POST /api/chat")
     print("  - POST /api/explain")
     print("  - POST /api/predict-impact")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    print("  - GET  /api/groq-stats")
+    print("  - POST /api/groq-reset")
+    
+    app.run(host='0.0.0.0', port=port, debug=debug)
