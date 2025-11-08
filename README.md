@@ -2,6 +2,20 @@
 
 Aplicación de mantenimiento automático de PC con limpieza, optimización de recursos y programación de tareas.
 
+[![GitHub release](https://img.shields.io/github/v/release/daveymena/mantenimiento)](https://github.com/daveymena/mantenimiento/releases)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+## 📥 Descarga Rápida
+
+**¿Solo quieres usar la aplicación?** Descarga el ejecutable listo para usar:
+
+👉 [**Descargar Última Versión**](https://github.com/daveymena/mantenimiento/releases)
+
+- **Instalador**: `PC-Maintenance-Optimizer-Setup-2.0.0.exe` (71 MB)
+- **Portable**: `PC-Maintenance-Optimizer-Portable.exe` (71 MB) - No requiere instalación
+
+> ⚠️ **Nota**: Necesitarás configurar tus propias API keys de Groq para usar las funciones de IA. Ver [CONFIGURACION_API_KEYS.md](CONFIGURACION_API_KEYS.md)
+
 ## ⚡ Características
 
 ### 🤖 Inteligencia Artificial Integrada (Groq)
