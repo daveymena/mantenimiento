@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Maintenance Optimizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 PC Maintenance Optimizer</h1>
+            <p class="subtitle">Optimización y mantenimiento automático de tu PC</p>
+        </header>
+
+        <div class="warning-box">
+            <strong>⚠️ Importante:</strong> Esta aplicación requiere permisos de administrador. 
+            Siempre se crea un restore point antes de cambios importantes.
+        </div>
+
+        <section class="scan-section">
+            <h2>Estado del Sistema</h2>
+            <button id="scanBtn" class="btn btn-primary">🔍 Escanear Sistema</button>
+            <button id="restoreBtn" class="btn btn-secondary">💾 Crear Restore Point</button>
+            
+            <div id="scanResults" class="results-box" style="display: none;">
+                <h3>Resultados del Escaneo</h3>
+                <div id="scanData"></div>
+            </div>
+        </section>
+
+        <section class="optimize-section">
+            <h2>Opciones de Optimización</h2>
+            
+            <div class="options-grid">
+                <label class="option-card">
+                    <input type="checkbox" id="cleanTemp" checked>
+                    <div class="option-content">
+                        <span class="option-icon">🗑️</span>
+                        <span class="option-title">Limpiar Temporales</span>
+                        <span class="option-desc">Elimina archivos temporales y cache</span>
+                    </div>
+                </label>
+
+                <label class="option-card">
+                    <input type="checkbox" id="optimizeStartup">
+                    <div class="option-content">
+                        <span class="option-icon">🚀</span>
+                        <span class="option-title">Optimizar Inicio</span>
+                        <span class="option-desc">Gestiona apps de arranque</span>
+                    </div>
+                </label>
+
+                <label class="option-card">
+                    <input type="checkbox" id="optimizeServices">
+                    <div class="option-content">
+                        <span class="option-icon">⚙️</span>
+                        <span class="option-title">Optimizar Servicios</span>
+                        <span class="option-desc">Detiene servicios no críticos</span>
+                    </div>
+                </label>
+
+                <label class="option-card">
+                    <input type="checkbox" id="freeMemory">
+                    <div class="option-content">
+                        <span class="option-icon">💾</span>
+                        <span class="option-title">Liberar Memoria</span>
+                        <span class="option-desc">Optimiza uso de RAM</span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="mode-selector">
+                <label>
+                    <input type="radio" name="mode" value="dryrun" checked>
+                    <span>🔍 Modo Simulación (Dry Run)</span>
+                </label>
+                <label>
+                    <input type="radio" name="mode" value="real">
+                    <span>⚡ Ejecutar Cambios Reales</span>
+                </label>
+            </div>
+
+            <button id="optimizeBtn" class="btn btn-success">✨ Optimizar Ahora</button>
+        </section>
+
+        <section class="ai-section">
+            <h2>🤖 Asistente IA</h2>
+            <div class="ai-container">
+                <div class="ai-analysis" id="aiAnalysis">
+                    <h3>Análisis Inteligente</h3>
+                    <button id="aiAnalyzeBtn" class="btn btn-primary">🧠 Analizar con IA</button>
+                    <div id="aiRecommendations" class="ai-recommendations"></div>
+                </div>
+                
+                <div class="ai-chat">
+                    <h3>💬 Chat con IA</h3>
+                    <div id="chatMessages" class="chat-messages"></div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chatInput" placeholder="Pregunta algo... ej: 'Mi PC va lenta'" />
+                        <button id="chatSendBtn" class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advanced-tools">
+            <h2>🔧 Herramientas Avanzadas</h2>
+            
+            <div class="tools-grid">
+                <button id="aggressiveRamBtn" class="tool-btn">
+                    ⚡ Limpieza Agresiva RAM
+                </button>
+                
+                <button id="gamingModeBtn" class="tool-btn">
+                    🎮 Modo Gaming
+                </button>
+                
+                <button id="privacyBtn" class="tool-btn">
+                    🔒 Optimizar Privacidad
+                </button>
+                
+                <button id="bloatwareBtn" class="tool-btn">
+                    🗑️ Eliminar Bloatware
+                </button>
+                
+                <button id="securityBtn" class="tool-btn">
+                    🛡️ Análisis Seguridad
+                </button>
+                
+                <button id="healthBtn" class="tool-btn">
+                    💚 Monitor Salud
+                </button>
+                
+                <button id="advancedHealthBtn" class="tool-btn">
+                    🔬 Salud Avanzada
+                </button>
+                
+                <button id="licenseBtn" class="tool-btn">
+                    🔍 Verificar Licencia
+                </button>
+                
+                <button id="backupBtn" class="tool-btn">
+                    💾 Gestor Backup
+                </button>
+                
+                <button id="driversBtn" class="tool-btn">
+                    🔧 Gestor Drivers
+                </button>
+            </div>
+        </section>
+
+        <section class="logs-section">
+            <h2>Registro de Actividad</h2>
+            <div id="logOutput" class="log-box"></div>
+        </section>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

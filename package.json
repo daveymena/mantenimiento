@@ -1,0 +1,94 @@
+{
+  "name": "pc-maintenance-optimizer",
+  "version": "2.0.0",
+  "description": "Aplicación de mantenimiento automático de PC con limpieza, optimización y programación",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:portable": "electron-builder --win portable",
+    "dist": "electron-builder --win --x64"
+  },
+  "keywords": [
+    "maintenance",
+    "optimizer",
+    "cleaner",
+    "windows"
+  ],
+  "author": "PC Maintenance Optimizer Team",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "24.13.3"
+  },
+  "dependencies": {
+    "node-powershell": "^5.0.1"
+  },
+  "build": {
+    "appId": "com.pcmaintenance.optimizer",
+    "productName": "PC Maintenance Optimizer",
+    "copyright": "Copyright © 2025",
+    "compression": "maximum",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "requestedExecutionLevel": "requireAdministrator",
+      "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "PC Maintenance Optimizer",
+      "license": "LICENSE",
+      "artifactName": "PC-Maintenance-Optimizer-Setup-${version}.exe",
+      "deleteAppDataOnUninstall": false
+    },
+    "portable": {
+      "artifactName": "PC-Maintenance-Optimizer-Portable.exe"
+    },
+    "files": [
+      "src/**/*",
+      "package.json",
+      "config.json",
+      "!src/**/*.map",
+      "!**/*.md",
+      "!docs/**/*",
+      "!logs/**/*",
+      "!venv/**/*",
+      "!.vscode/**/*"
+    ],
+    "extraFiles": [
+      {
+        "from": "src/backend/scripts",
+        "to": "resources/scripts",
+        "filter": [
+          "**/*.ps1"
+        ]
+      }
+    ],
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "asarUnpack": [
+      "src/backend/scripts/**/*"
+    ]
+  }
+}

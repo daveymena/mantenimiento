@@ -1,0 +1,64 @@
+{
+  "app": {
+    "name": "PC Maintenance Optimizer",
+    "version": "1.0.0",
+    "defaultMode": "dryrun"
+  },
+  "optimization": {
+    "cleanTemp": {
+      "enabled": true,
+      "paths": [
+        "%TEMP%",
+        "%windir%\\Temp"
+      ]
+    },
+    "services": {
+      "blacklist": [
+        "wuauserv",
+        "WinDefend",
+        "MpsSvc",
+        "BFE",
+        "Dhcp",
+        "Dnscache",
+        "EventLog"
+      ],
+      "safeToStop": [
+        "TabletInputService",
+        "Fax",
+        "XblAuthManager",
+        "XblGameSave",
+        "XboxNetApiSvc"
+      ]
+    },
+    "processes": {
+      "critical": [
+        "System",
+        "svchost",
+        "csrss",
+        "wininit",
+        "services",
+        "lsass",
+        "winlogon",
+        "explorer",
+        "dwm"
+      ],
+      "nonCritical": [
+        "OneDrive",
+        "Spotify",
+        "Discord",
+        "Slack",
+        "Teams",
+        "Steam"
+      ]
+    }
+  },
+  "logging": {
+    "enabled": true,
+    "maxFiles": 50,
+    "path": "logs"
+  },
+  "scheduler": {
+    "defaultTime": "02:00",
+    "defaultFrequency": "weekly"
+  }
+}

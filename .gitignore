@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+distribucion/
+*.exe
+*.zip
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Environment variables (NUNCA subir API keys)
+.env
+.env.local
+.env.production
+groq_keys_state.json
+
+# Build resources (opcional - descomenta si no quieres subir iconos)
+# build/
+
+# Electron
+out/
